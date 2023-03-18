@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  useEditBookMutation,
-  useGetindividualbookMutation,
-} from "../../features/BookApi/bookApiSlice";
+import { useGetindividualbookMutation } from "../../features/BookApi/bookApiSlice";
 
 const EditBook = () => {
   const navigate = useNavigate();
@@ -11,8 +8,6 @@ const EditBook = () => {
   const { editId } = useParams();
   const [getindividualbook, { data: individualBook, isLoading: bookLoading }] =
     useGetindividualbookMutation();
-
-  const [editBook, { isSuccess: editSuccess }] = useEditBookMutation();
 
   useEffect(() => {
     if (editId) {
@@ -24,41 +19,35 @@ const EditBook = () => {
     setFeatured(!featured);
   };
 
-  const [name, setName] = useState();
-  const [author, setAuthor] = useState();
-  const [thumbnail, setThumbnail] = useState();
-  const [price, setPrice] = useState();
-  const [rating, setRating] = useState();
-  const [featured, setFeatured] = useState();
-
-  useEffect(() => {
-    setName(individualBook?.length > 0 ? individualBook[0]?.name : null);
-    setAuthor(individualBook?.length > 0 ? individualBook[0].author : null);
-    setPrice(individualBook?.length > 0 ? individualBook[0].price : null);
-    setRating(individualBook?.length > 0 ? individualBook[0].rating : null);
-    setThumbnail(
-      individualBook?.length > 0 ? individualBook[0].thumbnail : null
-    );
-    setFeatured(individualBook?.length > 0 ? individualBook[0].featured : null);
-  }, [individualBook]);
+  const [name, setName] = useState(
+    individualBook?.length > 0 ? individualBook[0]?.name : null
+  );
+  const [author, setAuthor] = useState(
+    individualBook?.length > 0 ? individualBook[0].author : null
+  );
+  const [thumbnail, setThumbnail] = useState(
+    individualBook?.length > 0 ? individualBook[0].thumbnail : null
+  );
+  const [price, setPrice] = useState(
+    individualBook?.length > 0 ? individualBook[0].price : null
+  );
+  const [rating, setRating] = useState(
+    individualBook?.length > 0 ? individualBook[0].rating : null
+  );
+  const [featured, setFeatured] = useState(
+    individualBook?.length > 0 ? individualBook[0].featured : null
+  );
   const handleSubmit = (e) => {
     e.preventDefault();
-    editBook({
-      id: editId,
-      data: {
-        name,
-        price,
-        rating,
-        author,
-        thumbnail,
-        featured,
-      },
+    console.log({
+      name,
+      price,
+      rating,
+      author,
+      thumbnail,
+      featured,
     });
   };
-
-  if (editSuccess) {
-    navigate("/");
-  }
 
   return (
     <main className="py-6 2xl:px-6">
