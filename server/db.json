@@ -46,7 +46,7 @@
       "id": 6
     },
     {
-      "name": "Sunrise On the East Avobe",
+      "name": "Sunrise On the East Avobe-Vol3",
       "price": "120",
       "rating": "5",
       "author": "J.R.R Tolkein",
@@ -71,6 +71,15 @@
       "thumbnail": "https://www.southernliving.com/thmb/boSMe1SkKj7Q2HLG3zKGsOS2qk0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/henry-book-lovers-2000-6ac6944987ad4e7abef8ea51fb399afd.jpg",
       "featured": true,
       "id": 10
+    },
+    {
+      "name": "Romeo And Juliet",
+      "price": "69",
+      "rating": "5",
+      "author": "Tofayel Akbar",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4vixxRpkKRTrwDLnO87ZiDVuY1mpRqmP2ww&usqp=CAU",
+      "featured": true,
+      "id": 11
     }
   ]
 }

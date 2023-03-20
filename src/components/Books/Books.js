@@ -28,7 +28,15 @@ const Books = () => {
 
   //Getting Searched Data using normal redux toolkit
   const { searchWord } = useSelector((state) => state?.searchedData);
-  console.log(searchWord);
+  console.log("searched word", searchWord);
+
+  useEffect(() => {
+    if (searchWord) {
+      setToggle(null);
+    } else {
+      setToggle("All");
+    }
+  }, [searchWord]);
 
   const [
     getSearchedBook,
@@ -78,7 +86,7 @@ const Books = () => {
                 return <Book key={each?.id} book={each}></Book>;
               })}
             </>
-          ) : searchWord !== null ? (
+          ) : searchWord ? (
             <>
               {searchedbook?.map((each) => {
                 return <Book key={each?.id} book={each}></Book>;
